@@ -1,3 +1,4 @@
+/* eslint-disable prefer-promise-reject-errors */
 const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
@@ -15,7 +16,7 @@ const findServer = async () => {
     // Start parsing the content of file
     const serverMockData = isDataExits(userMockData);
     if (!serverMockData) {
-      return Promise.reject(new Error({ status: StatusCodes.NOT_FOUND, message: "Server List Empty" }));
+      return Promise.reject({ status: StatusCodes.NOT_FOUND, message: "Server List Empty" });
     }
 
     // This method will check wheather the available servers are online or not
@@ -25,7 +26,7 @@ const findServer = async () => {
     serverArray = sortArray(serverArray);
     return serverArray.length
       ? Promise.resolve(serverArray[0])
-      : Promise.reject(new Error({ status: StatusCodes.NOT_FOUND, message: "No online server found" }));
+      : Promise.reject({ status: StatusCodes.NOT_FOUND, message: "No online server found" });
   } catch (error) {
     return Promise.reject(error);
   }

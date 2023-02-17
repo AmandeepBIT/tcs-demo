@@ -53,8 +53,8 @@ const viewUserController = async (req, res, next) => {
     const data = id ? await getUserById(Number(id)) : await getAllUsers();
     return res.status(StatusCodes.OK).send({
       status: true,
-      message: (data && data.length > 0) ? "User Fetched Successfully" : "No Record Found",
-      data: (data && data.length > 0) ? data : []
+      message: (data) ? "User Fetched Successfully" : "No Record Found",
+      data
     });
   } catch (error) {
     // handle error

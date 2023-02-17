@@ -1,3 +1,4 @@
+/* eslint-disable prefer-promise-reject-errors */
 // import thr fs and path modules to handle the opeartions regarding file
 const fs = require("fs");
 const path = require("path");
@@ -52,10 +53,10 @@ const getUserById = async (id) => {
       : undefined;
     return user
       ? Promise.resolve(user)
-      : Promise.reject(new Error({
+      : Promise.reject({
         status: StatusCodes.NOT_FOUND,
         message: "User Not Found"
-      }));
+      });
   } catch (error) {
     // Handle error
     return Promise.reject(error);
@@ -66,17 +67,17 @@ const getUserById = async (id) => {
 const updateUser = async (id, data) => {
   try {
     // Read the content of file
-    const userMockData = readFile();
-
+    let userMockData = readFile();
+    userMockData = isDataExits(userMockData);
     // If data exists in file then need to parse it
     const user = userMockData
       ? userMockData.find((user) => user.id === id)
       : undefined;
     if (!user) {
-      return Promise.reject(new Error({
+      return Promise.reject({
         status: StatusCodes.NOT_FOUND,
         message: "User Not Found"
-      }));
+      });
     }
 
     // Get the exact user, so we can update it
