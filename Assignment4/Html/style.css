@@ -1,0 +1,110 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.box-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-section,
+.update-section,
+.view-section {
+  width: 26rem;
+  box-shadow: 0px 0px 4px -1px rgb(77, 77, 77);
+  border-radius: 0.5rem;
+  padding: 1.5rem 1.5rem;
+}
+
+h3 {
+  margin: 0rem;
+  padding-bottom: 1.3rem;
+}
+
+.form-elements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-elements > input[type="text"] {
+  height: 2.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgb(136, 136, 136);
+}
+
+.form-elements > input[type="text"]:focus {
+  outline: none;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  border: 1px solid;
+  background: rgb(214, 214, 214);
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+input[type="submit"]:active {
+  border-style: inset;
+}
+
+.btn:hover {
+  background: rgb(202, 202, 202);
+}
+
+.form-view-elements {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-view-elements > input[type="text"] {
+  height: 2.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid rgb(136, 136, 136);
+}
+
+.form-view-elements > input[type="text"]:focus {
+  outline: none;
+}
+
+.button-section {
+  display: flex;
+  gap: 1rem;
+  margin: 3rem 0rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .box-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .create-section,
+  .update-section,
+  .view-section {
+    margin-bottom: 2rem;
+    width: calc(100% - 10%);
+  }
+
+  .button-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 3rem 0rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .create-section,
+  .update-section,
+  .view-section {
+    margin-bottom: 2rem;
+    width: 280px;
+  }
+}
