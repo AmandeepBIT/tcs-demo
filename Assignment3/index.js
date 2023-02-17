@@ -1,6 +1,12 @@
+// Get the params from command prompt
 var first_value = process.argv[2]; 
 var second_value = process.argv[3]; 
 
+if (!first_value || !second_value){
+  console.log("Missing params!!!")
+  return
+}
+// Importing the Event emitters for emitting purpose
 const EventEmitter = require("events");
 let final = 0;
 const sum = () => {
@@ -14,7 +20,7 @@ const sum = () => {
       final += indexSecond;
     }
   }
-  console.log("overall final is ", final)
+  console.log("overall final value is ", final)
   const event = new EventEmitter();
   
   event.on("CustomEvent", () => {

@@ -4,6 +4,7 @@
   const winston = require("winston");
   const successLogFileName = "weatherSuccessLog.log";
 
+  // Pre settings to setup the logger while sevrer starts
   const logger = winston.createLogger({
     level: "info",
     format: winston.format.json(),
@@ -33,7 +34,7 @@
           this.loggerFunc(data);
         }
       },
-
+      // Log the information inside the log file
       loggerFunc: function (data) {
         logger.log({
           timestamp: new Date(),

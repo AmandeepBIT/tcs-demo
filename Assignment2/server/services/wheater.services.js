@@ -1,7 +1,9 @@
+// importing the axios to perform some HTTP based calls
 const axios = require("axios");
 const constants = require("../utility/wheather.constant");
 require("dotenv").config();
 
+// Pre-Settings for the axios headers. Like API Security Key and authentication key
 axios.interceptors.request.use(
   (config) => {
     config.headers[
@@ -15,6 +17,7 @@ axios.interceptors.request.use(
   }
 );
 
+// Call third party APIs for latest wheather details based on the city
 const callWheatherAPI = async (cityName) => {
   try {
     const url = constants.WHEATHER_API_BY_CITY + cityName;
